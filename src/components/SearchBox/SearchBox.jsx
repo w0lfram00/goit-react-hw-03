@@ -7,7 +7,7 @@ const SearchBox = ({ setSearchName }) => {
         <p>Find contacts by name</p>
         <input
           onChange={(e) => {
-            setSearchName(e.target.value.toLowerCase());
+            setSearchName(e.target.value.toLowerCase().trim());
           }}
           type="text"
         />

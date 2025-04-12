@@ -1,11 +1,12 @@
 .list {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  flex-direction: row;
   gap: 10px;
-  width: 400px;
   padding: 5px;
 
   li {
+    width: calc((100% - 10px * 3) / 4);
     display: flex;
     justify-content: space-between;
     border: 2px solid grey;

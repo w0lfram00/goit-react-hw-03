@@ -5,10 +5,12 @@ import SearchBox from "./components/SearchBox/SearchBox";
 import ContactList from "./components/ContactList/ContactList";
 
 function App() {
-  const [contacts, setContacts] = useState([]);
+  const [contacts, setContacts] = useState(
+    JSON.parse(localStorage.getItem("saved-contacts")) ?? []
+  );
   const [searchName, setSearchName] = useState("");
   useEffect(() => {
-    localStorage.setItem();
+    localStorage.setItem("saved-contacts", JSON.stringify(contacts));
   }, [contacts]);
 
   const handleAddContact = (newContact) => {
@@ -19,17 +21,19 @@ function App() {
   };
 
   return (
-    <div className="container">
-      <h1>Phonebook</h1>
-      <ContactForm addContact={handleAddContact} />
-      <SearchBox setSearchName={setSearchName} />
+    <>
+      <div className="container">
+        <h1>Phonebook</h1>
+        <ContactForm addContact={handleAddContact} />
+        <SearchBox setSearchName={setSearchName} />
+      </div>
       <ContactList
         contacts={contacts.filter((item) =>
           item.name.toLowerCase().includes(searchName)
         )}
         deleteContact={handleRemuveContact}
       />
-    </div>
+    </>
   );
 }
 
