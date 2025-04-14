@@ -4,4 +4,14 @@
   gap: 15px;
   width: 500px;
   align-items: center;
+
+  label {
+    display: flex;
+    flex-direction: column;
+
+    span {
+      color: red;
+      font-size: 20px;
+    }
+  }
 }
